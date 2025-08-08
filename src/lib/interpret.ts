@@ -1,4 +1,4 @@
-import type { CategoryKey, CategoryScore, Unit } from "../types.ts";
+import type { CategoryScore, Unit } from "../types.ts";
 import { SNP_INFO } from "../data/snpInfo.ts";
 
 export function interpretSnp(snp: string, genotype?: string) {
