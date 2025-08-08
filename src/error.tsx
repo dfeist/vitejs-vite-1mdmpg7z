@@ -8,9 +8,9 @@ if (!el) throw new Error("Root element #root not found");
 
 // Surface background errors in console (helps when white screen hides issues)
 window.addEventListener("error", (e) => {
-  console.error("Global error:", (e as any).error || (e as any).message);
+  console.error("Global error:", e.error || e.message);
 });
-window.addEventListener("unhandledrejection", (e: PromiseRejectionEvent) => {
+window.addEventListener("unhandledrejection", (e) => {
   console.error("Unhandled promise rejection:", e.reason);
 });
 
