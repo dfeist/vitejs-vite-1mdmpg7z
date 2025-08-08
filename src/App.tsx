@@ -162,7 +162,7 @@ export default function App() {
       {tab === 1 && (
         <div className="grid gap-4">
           <div className="p-4 bg-white border rounded shadow-sm">
-            <h2 className="font-semibold mb-2">Upload SelfDecode / 23andMe-style file</h2>
+            <h2 className="font-semibold mb-2">Parse SelfDecode / 23andMe-style file (file is not uploaded anywhere and is only processed locally in your browser!)</h2>
             <input type="file" accept=".txt,.csv" onChange={handleFile} className="border p-2 w-full" />
             <p className="text-xs text-slate-600 mt-2">We read only the SNPs needed for this analysis; other rows are ignored.</p>
           </div>
