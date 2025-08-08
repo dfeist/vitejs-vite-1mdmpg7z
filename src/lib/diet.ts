@@ -1,5 +1,5 @@
 // src/lib/diet.ts — diet metadata, lab prediction, scoring and explanations
-import type {CategoryScore, DietKey, LabsMMol } from "../types.ts";
+import type { CategoryKey, CategoryScore, DietKey, LabsMMol } from "../types.ts";
 import { SNP_CATEGORIES } from "../data/snpInfo.ts";
 import  { categoryScores } from "./interpret.ts";
 import  { isHyperAbsorber } from "./phenotypes.ts";
@@ -86,8 +86,8 @@ export const DIET_BASE_MMol: Record<DietKey, LabsMMol> = {
 export function predictLabsMMol(
   diet: DietKey,
   genotypes: Record<string, string>,
-  //cat: Record<CategoryKey, CategoryScore>,
-  //bmi: number // currently unused (fixed at 25)
+  cat: Record<CategoryKey, CategoryScore>,
+  bmi: number // currently unused (fixed at 25)
 ): LabsMMol {
   const base = { ...DIET_BASE_MMol[diet] };
   const ldl = categoryScores(SNP_CATEGORIES["LDL receptor function / cholesterol clearance"], genotypes);
@@ -99,6 +99,9 @@ export function predictLabsMMol(
   const liverRisk = liver.label === "Overall Risk";
   const hyperAbs = isHyperAbsorber(genotypes);
 
+  console.log(cat);
+  console.log(bmi)
+  
   let LDL = base.LDL;
   let HDL = base.HDL;
   let TG  = base.TG;
